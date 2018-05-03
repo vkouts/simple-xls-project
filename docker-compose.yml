@@ -1,0 +1,15 @@
+version: '2'
+services:
+
+  web:
+     build: .
+     container_name: xls-example
+     expose:
+       - "8000"
+     env_file: .env
+     ports:
+        - "8000:5000"
+     volumes:
+        - ./:/opt/app
+     working_dir: /opt/app
+     entrypoint: ["/bin/bash", "./init.sh"]

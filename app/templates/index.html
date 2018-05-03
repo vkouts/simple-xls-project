@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="text\html; charset=UTF-8" http-equiv="content-type" />
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    </head>
+    <body>
+       <button id="xlsbutton" type="button" class="btn btn-primary" style="margin: 50px;">Export to XLS</button>
+       <table class="table">
+          <tr>
+             <th>Name</th>
+             <th>Email</th>
+             <th>Profile</th>
+             <th>Image</th>
+          </tr>
+          {% for record in records %}
+          <tr>
+             <td>{{ record.name }}</td>
+             <td>{{ record.email }}</td>
+             <td>{{ record.profile }}</td>
+             <td>{{ record.photo }}</td>
+          </tr>
+          {% endfor %}
+       </table>
+       <script type="text/javascript">
+          document.getElementById("xlsbutton").onclick = function () {
+             location.href = "/xls";
+          };
+       </script>
+    </body>
+</html>
